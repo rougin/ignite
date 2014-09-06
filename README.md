@@ -1,4 +1,4 @@
-ignite
+ignite.php
 ======
 
 A simple PHP script that deletes unwanted files and folders then installs [Composer](https://getcomposer.org/), [Doctrine](http://www.doctrine-project.org/), and [Faker](https://github.com/fzaninotto/Faker) for CodeIgniter 3 be ready for writing web applications.
@@ -11,12 +11,12 @@ Instructions
   
 2. Clone this repository.
 
-  ```git clone https://github.com/rougin/ignite.git```
+  ```git clone https://github.com/rougin/ignite.php.git```
   
   After cloning, copy the **ignite** file to the **CodeIgniter** directory.
-3. Open the **CodeIgniter** directory then run **ignite** from PHP CLI.
+3. Open the cloned **CodeIgniter** directory then run **ignite.php** from PHP CLI.
 
-  ```php ignite```
+  ```php ignite.php```
 
 TODO
 ====
