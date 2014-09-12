@@ -6,8 +6,8 @@
  * Deletes unwanted files and folders then installs a dependency package
  * manager for CodeIgniter 3
  *
- * @author Rougin Gutib <rougin.royce@gmail.com>
- * @link http://github.com/rougin/ignite
+ * @author 	Rougin Gutib <rougin.royce@gmail.com>
+ * @link 	http://github.com/rougin/ignite
  */
 
 /**
@@ -21,8 +21,7 @@ $composer =
 	"description" : "EllisLab\'s Open Source PHP Framework http://codeigniter.com/",
 	"name" : "ellislab/codeigniter",
 	"require": {
-		"doctrine/orm": "2.4.*",
-		"fzaninotto/Faker": "*"
+		"doctrine/orm": "2.4.*"
 	}
 }';
 
@@ -324,7 +323,7 @@ fclose($file);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * INSTALL COMPOSER
+ * INSTALL COMPOSER AND INSTALL ITS DEPENDENCIES
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -348,28 +347,15 @@ fclose($file);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * AUTOLOAD DOCTRINE AND EXTEND THE MODEL BASE CLASS TO THE DOCTRINE LIBRARY
+ * AUTOLOAD THE DOCTRINE LIBRARY AND THE OTHER HELPERS
  * ---------------------------------------------------------------------------------------------
  */
 
 $autoload = file_get_contents('application/config/autoload.php');
-$contents = str_replace(
-	'$autoload[\'libraries\'] = array();',
-	'$autoload[\'libraries\'] = array(\'doctrine\');',
-	$autoload
-);
+$search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helpers\'] = array();');
+$replace = array('$autoload[\'libraries\'] = array(\'doctrine\');', '$autoload[\'libraries\'] = array(\'url\', \'form\');')
+$contents = str_replace($search, $replace, $autoload);
 file_put_contents('application/config/autoload.php', $contents);
-
-$model = file_get_contents('system/core/Model.php');
-$search = array('class CI_Model {', 'log_message(\'debug\', \'Model Class Initialized\');');
-$replace = array(
-	'class CI_Model extends Doctrine {',
-	'parent::__construct();' . "\n\n\t\t" .
-	'log_message(\'debug\', \'Model Class Initialized\');'
-);
-
-$contents = str_replace($search, $replace, $model);
-file_put_contents('system/core/Model.php', $contents);
 
 /**
  * ---------------------------------------------------------------------------------------------
@@ -385,4 +371,3 @@ include BASEPATH . \'core/Model.php\';';
 
 $contents = str_replace($search, $replace, $abstract_command);
 file_put_contents('vendor/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php', $contents);
-?>
