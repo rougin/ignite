@@ -12,6 +12,14 @@
 
 /**
  * ---------------------------------------------------------------------------------------------
+ * GET THE CodeIgniter.php CORE FILE
+ * ---------------------------------------------------------------------------------------------
+ */
+
+$codeigniter_core = file_get_contents('system/core/CodeIgniter.php');
+
+/**
+ * ---------------------------------------------------------------------------------------------
  * CONTENTS FOR THE composer.json
  * ---------------------------------------------------------------------------------------------
  */
@@ -24,7 +32,6 @@ $composer =
 		"doctrine/orm": "2.4.*"
 	}
 }';
-
 
 /**
  * ---------------------------------------------------------------------------------------------
@@ -191,7 +198,6 @@ class Doctrine
 
 }';
 
-
 /**
  * ---------------------------------------------------------------------------------------------
  * FILES AND FOLDER TO BE DELETED
@@ -211,7 +217,6 @@ $files_to_be_deleted = array(
 );
 
 $folders_to_be_deleted = array(
-	'.git',
 	'tests',
 	'user_guide_src'
 );
@@ -286,7 +291,8 @@ foreach ($folders_to_be_deleted as $folder) {
 
 /**
  * ---------------------------------------------------------------------------------------------
- * CREATING A .htacess FOR CLEAN URLS
+ * CREATING A .htacess FOR CLEAN URLS , REMOVE index.php AND ADD AN ENCRYPTION KEY FROM THE 
+ * CONFIGURATION
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -296,6 +302,12 @@ $file = fopen('.htaccess', 'wb');
 chmod('.htaccess', 0777);
 file_put_contents('.htaccess', $htaccess);
 fclose($file);
+
+$file = file_get_contents('application/config/config.php');
+$search = array('$config[\'index_page\'] = \'index.php\';', '$config[\'encryption_key\'] = \'\';');
+$replace = array('$config[\'index_page\'] = \'\';', '$config[\'encryption_key\'] = \'' . md5('rougin') . '\';');
+$file = str_replace($search, $replace, $file);
+file_put_contents('application/config/config.php', $file);
 
 /**
  * ---------------------------------------------------------------------------------------------
@@ -347,13 +359,21 @@ fclose($file);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * AUTOLOAD THE DOCTRINE LIBRARY AND THE OTHER HELPERS
+ * AUTOLOAD THE DOCTRINE LIBRARY AND THE OTHER LIBRARIES AND HELPERS
  * ---------------------------------------------------------------------------------------------
  */
 
+$session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE) ? ', \'session\'' : '';
+
 $autoload = file_get_contents('application/config/autoload.php');
 $search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helpers\'] = array();');
-$replace = array('$autoload[\'libraries\'] = array(\'doctrine\');', '$autoload[\'libraries\'] = array(\'url\', \'form\');')
+$replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'libraries\'] = array(\'url\', \'form\');')
+
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
+	$search[] = '$autoload[\'drivers\'] = array(\'\');'
+	$replace[] = '$autoload[\'drivers\'] = array(\'session\');'
+}
+
 $contents = str_replace($search, $replace, $autoload);
 file_put_contents('application/config/autoload.php', $contents);
 
