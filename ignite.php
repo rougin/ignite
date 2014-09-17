@@ -371,8 +371,8 @@ $search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helpers\'] =
 $replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'libraries\'] = array(\'url\', \'form\');');
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
-	$search[] = '$autoload[\'drivers\'] = array(\'\');'
-	$replace[] = '$autoload[\'drivers\'] = array(\'session\');'
+	$search[] = '$autoload[\'drivers\'] = array(\'\');';
+	$replace[] = '$autoload[\'drivers\'] = array(\'session\');';
 }
 
 $contents = str_replace($search, $replace, $autoload);
