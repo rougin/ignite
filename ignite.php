@@ -368,7 +368,7 @@ $session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') ===
 
 $autoload = file_get_contents('application/config/autoload.php');
 $search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helpers\'] = array();');
-$replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'libraries\'] = array(\'url\', \'form\');')
+$replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'libraries\'] = array(\'url\', \'form\');');
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
 	$search[] = '$autoload[\'drivers\'] = array(\'\');'
