@@ -12,7 +12,7 @@
 
 /**
  * ---------------------------------------------------------------------------------------------
- * GET THE CodeIgniter.php CORE FILE
+ * Get the CodeIgniter.php core file
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -20,7 +20,7 @@ $codeigniter_core = file_get_contents('system/core/CodeIgniter.php');
 
 /**
  * ---------------------------------------------------------------------------------------------
- * CONTENTS FOR THE composer.json
+ * Contents for the composer.json
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -35,7 +35,7 @@ $composer =
 
 /**
  * ---------------------------------------------------------------------------------------------
- * CONTENTS FOR THE doctrine.php in vendor/bin
+ * Contents for the doctrine.php in vendor/bin
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -104,7 +104,7 @@ if ( ! ($helperSet instanceof HelperSet)) {
 \Doctrine\ORM\Tools\Console\ConsoleRunner::run($helperSet, $commands);';
 
 /**
- * CONTENTS FOR THE DOCTRINE LIBRARY
+ * Contents for the Doctrine library
  */
 
 $doctrine_library = 
@@ -200,7 +200,7 @@ class Doctrine
 
 /**
  * ---------------------------------------------------------------------------------------------
- * FILES AND FOLDER TO BE DELETED
+ * Files and folder to be deleted
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -223,7 +223,7 @@ $folders_to_be_deleted = array(
 
 /**
  * ---------------------------------------------------------------------------------------------
- * CONTENTS FOR .htacess
+ * Contents for .htacess
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -261,7 +261,7 @@ function remove_directory($dir) {
 
 /**
  * ---------------------------------------------------------------------------------------------
- * DELETING UNWANTED FILES
+ * Deleting unwanted files
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -270,13 +270,14 @@ echo 'Deleting unwanted files... ', PHP_EOL;
 foreach ($files_to_be_deleted as $file) {
 	if (file_exists($file)) {
 		echo '  Deleting ', $file, '... ', PHP_EOL;
+		
 		unlink($file);
 	}
 }
 
 /**
  * ---------------------------------------------------------------------------------------------
- * DELETING UNWANTED FOLDERS
+ * Deleting unwanted folders
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -285,14 +286,15 @@ echo 'Deleting unwanted folders... ', PHP_EOL;
 foreach ($folders_to_be_deleted as $folder) {
 	if (is_dir($folder)) {
 		echo '  Deleting ', $folder, '... ', PHP_EOL;
+		
 		remove_directory($folder);
 	}
 }
 
 /**
  * ---------------------------------------------------------------------------------------------
- * CREATING A .htacess FOR CLEAN URLS , REMOVE index.php AND ADD AN ENCRYPTION KEY FROM THE 
- * CONFIGURATION
+ * Creates a .htacess for clean urls, removes index.php and adds an encryption key from the 
+ * configuration
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -311,7 +313,7 @@ file_put_contents('application/config/config.php', $file);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * ADDING THE COMPOSER AUTOLOAD FILE IN index.php
+ * Adding the composer autoload file in index.php
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -335,7 +337,7 @@ fclose($file);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * INSTALL COMPOSER AND INSTALL ITS DEPENDENCIES
+ * Install Composer and its dependencies
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -346,8 +348,7 @@ system('composer update');
 
 /**
  * ---------------------------------------------------------------------------------------------
- * MODIFY THE CONTENTS OF vendor/bin/doctrine.php
- * AND CREATE THE DOCTRINE LIBRARY
+ * Modify the contents of vendor/bin/doctrine.php and create the Doctrine library
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -359,7 +360,7 @@ fclose($file);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * AUTOLOAD THE DOCTRINE LIBRARY AND THE OTHER LIBRARIES AND HELPERS
+ * Autoload the Doctrine library and the other libraries and helpers
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -379,7 +380,7 @@ file_put_contents('application/config/autoload.php', $contents);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * INCLUDE THE BASE MODEL CLASS IN DOCTRINE CLI
+ * Include the Base Model class in Doctrine CLI
  * ---------------------------------------------------------------------------------------------
  */
 
