@@ -23,4 +23,3 @@ TODO
 
 * Convert ignite as a single class.
 * Allow users to set up their required libraries via the command line
-* Add a code generator for CodeIgniter (maybe in a seperated repository)
