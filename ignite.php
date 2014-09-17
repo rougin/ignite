@@ -355,7 +355,7 @@ system('composer update');
 file_put_contents('vendor/bin/doctrine.php', $doctrine_cli);
 
 $file = fopen('application/libraries/Doctrine.php', 'wb');
-file_put_contents('application/libraries/Doctrine.php', $doctrine);
+file_put_contents('application/libraries/Doctrine.php', $doctrine_library);
 fclose($file);
 
 /**
@@ -384,11 +384,11 @@ file_put_contents('application/config/autoload.php', $contents);
  * ---------------------------------------------------------------------------------------------
  */
 
-$abstract_command = file_get_contents('vendor/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php');
+$abstract_command = file_get_contents('vendor/doctrine/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php');
 $search = 'use Doctrine\ORM\Tools\SchemaTool;';
 $replace = 'use Doctrine\ORM\Tools\SchemaTool;
 
 include BASEPATH . \'core/Model.php\';';
 
 $contents = str_replace($search, $replace, $abstract_command);
-file_put_contents('vendor/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php', $contents);
+file_put_contents('vendor/doctrine/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php', $contents);
