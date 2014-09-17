@@ -484,7 +484,7 @@ $route[\'(:any)/page\'] = \'$1\';
 $route[\'404_override\'] = \'\';';
 $routes = str_replace($search, $replace, $routes);
 
-file_put_contents('application/libraries/MY_Pagination.php', $routes);
+file_put_contents('application/config/routes.php', $routes);
 
 /**
  * ---------------------------------------------------------------------------------------------
