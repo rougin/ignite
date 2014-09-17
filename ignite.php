@@ -512,7 +512,7 @@ $pagination_config = fopen('application/config/pagination.php', 'wb');
 chmod('application/libraries/MY_Pagination.php', 0777);
 chmod('application/config/pagination.php', 0777);
 file_put_contents('application/libraries/MY_Pagination.php', $my_pagination);
-file_put_contents('application/config/pagination.php', $my_pagination);
+file_put_contents('application/config/pagination.php', $pagination);
 fclose($file);
 fclose($pagination_config);
 
