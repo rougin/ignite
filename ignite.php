@@ -29,7 +29,8 @@ $composer =
 	"description" : "EllisLab\'s Open Source PHP Framework http://codeigniter.com/",
 	"name" : "ellislab/codeigniter",
 	"require": {
-		"doctrine/orm": "2.4.*"
+		"doctrine/orm": "2.4.*",
+		"rougin/combustor": "dev-master"
 	}
 }';
 
