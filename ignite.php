@@ -119,7 +119,7 @@ use Doctrine\Common\ClassLoader,
  * Doctrine bootstrap library for CodeIgniter
  *
  * @author	Adam Elsodaney  <archfizz.co.uk>
- * @author  Rougin Gutib <rougin.royce@gmail.com>
+ * @author  Rougin Gutib 	<rougin.royce@gmail.com>
  * @link	http://stackoverflow.com/questions/17121997/integrating-doctrine-with-codeigniter
  */
 
@@ -430,7 +430,8 @@ RewriteRule .* index.php/$0 [PT,L]';
  * 
  * @param  string $dir
  */
-function remove_directory($dir) {
+function remove_directory($dir)
+{
 	if (is_dir($dir)) {
 		$objects = scandir($dir);
 		
@@ -569,7 +570,8 @@ system('composer update');
 
 /**
  * ---------------------------------------------------------------------------------------------
- * Modify the contents of vendor/bin/doctrine.php and create the Doctrine library
+ * Modify the contents of vendor/bin/doctrine.php, create the Doctrine library and create a
+ * "proxies" directory for lazy loading
  * ---------------------------------------------------------------------------------------------
  */
 
@@ -577,6 +579,8 @@ file_put_contents('vendor/bin/doctrine.php', $doctrine_cli);
 
 $file = fopen('application/libraries/Doctrine.php', 'wb');
 file_put_contents('application/libraries/Doctrine.php', $doctrine_library);
+mkdir('application/models/proxies');
+chmod('application/models/proxies', 0777);
 fclose($file);
 
 /**
@@ -588,8 +592,8 @@ fclose($file);
 $session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE) ? ', \'session\'' : '';
 
 $autoload = file_get_contents('application/config/autoload.php');
-$search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helpers\'] = array();');
-$replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'libraries\'] = array(\'url\', \'form\');');
+$search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = array();');
+$replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
 	$search[] = '$autoload[\'drivers\'] = array(\'\');';
@@ -606,10 +610,16 @@ file_put_contents('application/config/autoload.php', $contents);
  */
 
 $abstract_command = file_get_contents('vendor/doctrine/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php');
-$search = 'use Doctrine\ORM\Tools\SchemaTool;';
+$search = 'use Doctrine\ORM\Tools\SchemaTool;
+
+/**';
 $replace = 'use Doctrine\ORM\Tools\SchemaTool;
 
-include BASEPATH . \'core/Model.php\';';
+include BASEPATH . \'core/Model.php\';
+
+/**';
 
 $contents = str_replace($search, $replace, $abstract_command);
 file_put_contents('vendor/doctrine/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php', $contents);
+
+echo 'CodeIgniter is now ready for development! Start developing an awesome application today!', PHP_EOL;
