@@ -596,7 +596,7 @@ $search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = 
 $replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
-	$search[] = '$autoload[\'drivers\'] = array(\'\');';
+	$search[] = '$autoload[\'drivers\'] = array();';
 	$replace[] = '$autoload[\'drivers\'] = array(\'session\');';
 }
 
