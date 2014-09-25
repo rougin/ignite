@@ -549,7 +549,12 @@ $replace =
  * LOAD THE COMPOSER AUTOLOAD FILE
  * --------------------------------------------------------------------
  */
-include_once \'vendor/autoload.php\';';
+include_once \'vendor/autoload.php\';
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------';
 
 $index = str_replace($search, $replace, $index);
 
