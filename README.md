@@ -7,6 +7,7 @@ Instructions
 ============
 1. This script requires [Composer](https://getcomposer.org) in order to get it work. Download and install the latest version of it first. The instructions for that can be found [here](https://getcomposer.org/download/). If you have installed Composer already on your system, then you can skip this step.
 2. Clone the latest version of CodeIgniter (in the develop branch) (or you can also download the latest stable release [here](https://ellislab.com/codeigniter/download)) and extract it afterwards.
+	
 	```git clone https://github.com/EllisLab/CodeIgniter.git```
 3. Clone or download this repository.
 
