@@ -69,7 +69,7 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
  * Path to the root folder
  */
 
-define(\'ROOT\', str_replace(\'vendor/doctrine/orm/bin/doctrine.php\', \'\', __FILE__) . \'/\');
+define(\'ROOT\', __DIR__ . \'/../../../../\');
 
 /**
  * Path to the "system" folder
@@ -266,9 +266,9 @@ $my_pagination =
 class MY_Pagination extends CI_Pagination
 {
 
+	public $index_page;
 	public $offset = 0;
 	public $pagination_selector = \'page\';
-	public $index_page;
 
 	public function MY_Pagination() {
 		parent::__construct();
@@ -343,10 +343,8 @@ class MY_Pagination extends CI_Pagination
 			
 			$this->offset = 0;
 			$this->uri_segment = 0;
-			$this->base_url = config_item(\'base_url\') . $this->index_page . $CI->uri->uri_string() . \'/\' . $this->pagination_selector;
-		
+			$this->base_url = config_item(\'base_url\') . $this->index_page . $CI->uri->uri_string() . \'/\' . $this->pagination_selector;		
 		}
-	
 	}
 
 }';
