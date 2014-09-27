@@ -3,8 +3,9 @@
 /**
  * Ignite
  *
- * Deletes unwanted files and folders then installs a dependency package
- * manager for CodeIgniter 3
+ * A simple PHP script that deletes unwanted files and folders then installs 
+ * Doctrine (an object-relational mapper for PHP 5.3.3+), and 
+ * Combustor (a CRUD generator) for CodeIgniter 3 be ready for writing web applications.
  *
  * @author 	Rougin Gutib <rougin.royce@gmail.com>
  * @link 	http://github.com/rougin/ignite
