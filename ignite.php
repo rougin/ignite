@@ -580,11 +580,16 @@ system('composer update');
  */
 
 file_put_contents('vendor/bin/doctrine.php', $doctrine_cli);
+file_put_contents('vendor/doctrine/orm/bin/doctrine.php', $doctrine_cli);
 
 $file = fopen('application/libraries/Doctrine.php', 'wb');
 file_put_contents('application/libraries/Doctrine.php', $doctrine_library);
-mkdir('application/models/proxies');
-chmod('application/models/proxies', 0777);
+
+if ( ! is_dir('application/models/proxies')) {
+	mkdir('application/models/proxies');
+	chmod('application/models/proxies', 0777);
+}
+
 fclose($file);
 
 /**
