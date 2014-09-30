@@ -534,13 +534,16 @@ file_put_contents('application/config/routes.php', $routes);
  */
 
 $index = file_get_contents('index.php');
-$search = '	define(\'VIEWPATH\', $view_folder);
+
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE) {
+	$search =
+'	define(\'VIEWPATH\', $view_folder);
 
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
  * --------------------------------------------------------------------';
-$replace =
+	$replace =
 '	define(\'VIEWPATH\', $view_folder);
 
 /*
@@ -554,6 +557,23 @@ include_once \'vendor/autoload.php\';
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
  * --------------------------------------------------------------------';
+} else {
+	$search = 
+'		define(\'APPPATH\', BASEPATH.$application_folder.\'/\');
+	}
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE COMPOSER AUTOLOAD FILE
+ * --------------------------------------------------------------------
+ */
+include_once \'vendor/autoload.php\';
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------';
+}
 
 $index = str_replace($search, $replace, $index);
 
