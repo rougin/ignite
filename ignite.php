@@ -639,16 +639,19 @@ file_put_contents('application/config/autoload.php', $contents);
  */
 
 $abstract_command = file_get_contents('vendor/doctrine/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php');
-$search = 'use Doctrine\ORM\Tools\SchemaTool;
-
-/**';
+$search = 'use Doctrine\ORM\Tools\SchemaTool;';
 $replace = 'use Doctrine\ORM\Tools\SchemaTool;
 
-include BASEPATH . \'core/Model.php\';
+include BASEPATH . \'core/Model.php\';';
 
-/**';
+$contents = $abstract_command;
 
-$contents = str_replace($search, $replace, $abstract_command);
+if (strpos($abstract_command, 'use Doctrine\ORM\Tools\SchemaTool;') !== FALSE) {
+	if (strpos($abstract_command, 'include BASEPATH . \'core/Model.php\';') === FALSE) {
+		$contents = str_replace($search, $replace, $abstract_command);
+	}
+}
+
 file_put_contents('vendor/doctrine/orm/lib/Doctrine/ORM/Tools/Console/Command/SchemaTool/AbstractCommand.php', $contents);
 
 echo 'CodeIgniter is now ready for development! Start developing an awesome application today!', PHP_EOL;
