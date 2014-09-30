@@ -546,11 +546,13 @@ include_once \'vendor/autoload.php\';
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE';
 
-$index = str_replace($search, $replace, $index);
+if (strpos($index, 'include_once \'vendor/autoload.php\';') === FALSE) {
+	$index = str_replace($search, $replace, $index);
 
-$file = fopen('index.php', 'wb');
-file_put_contents('index.php', $index);
-fclose($file);
+	$file = fopen('index.php', 'wb');
+	file_put_contents('index.php', $index);
+	fclose($file);
+}
 
 /**
  * ---------------------------------------------------------------------------------------------
