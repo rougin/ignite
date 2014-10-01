@@ -509,16 +509,21 @@ file_put_contents('application/config/config.php', $file);
 
 $file = fopen('application/libraries/MY_Pagination.php', 'wb');
 $pagination_config = fopen('application/config/pagination.php', 'wb');
+
 chmod('application/libraries/MY_Pagination.php', 0777);
 chmod('application/config/pagination.php', 0777);
+
 file_put_contents('application/libraries/MY_Pagination.php', $my_pagination);
 file_put_contents('application/config/pagination.php', $pagination);
+
 fclose($file);
 fclose($pagination_config);
 
 $routes = file_get_contents('application/config/routes.php');
+
 $search = '$route[\'default_controller\'] = \'welcome\';
 $route[\'404_override\'] = \'\';';
+
 $replace = '$route[\'default_controller\'] = \'welcome\';
 $route[\'(:any)/page/(:any)\'] = \'$1/index/page/$2\';
 $route[\'(:any)/page\'] = \'$1\';
@@ -526,6 +531,7 @@ $route[\'404_override\'] = \'\';';
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
 	$search .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
+	$replace .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 }
 
 $routes = str_replace($search, $replace, $routes);
