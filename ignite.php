@@ -523,11 +523,12 @@ $replace = '$route[\'default_controller\'] = \'welcome\';
 $route[\'(:any)/page/(:any)\'] = \'$1/index/page/$2\';
 $route[\'(:any)/page\'] = \'$1\';
 $route[\'404_override\'] = \'\';';
-$routes = str_replace($search, $replace, $routes);
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
 	$search .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 }
+
+$routes = str_replace($search, $replace, $routes);
 
 file_put_contents('application/config/routes.php', $routes);
 
