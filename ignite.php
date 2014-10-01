@@ -525,6 +525,10 @@ $route[\'(:any)/page\'] = \'$1\';
 $route[\'404_override\'] = \'\';';
 $routes = str_replace($search, $replace, $routes);
 
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
+	$search .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
+}
+
 file_put_contents('application/config/routes.php', $routes);
 
 /**
