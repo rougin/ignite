@@ -160,10 +160,10 @@ class Doctrine
 		 * e.g. Creating a new \User loads the class from application/models/User.php
 		 */
 		
+		$metadata_paths   = array(APPPATH . \'models\');
+		$models           = APPPATH . \'models\';
 		$models_namespace = \'\';
-		$models = APPPATH . \'models\';
-		$proxies = APPPATH . \'models/proxies\';
-		$metadata_paths = array(APPPATH . \'models\');
+		$proxies          = APPPATH . \'models/proxies\';
 
 		/**
 		 * Set $dev_mode to TRUE to disable caching while you develop
@@ -330,8 +330,8 @@ class MY_Pagination extends CI_Pagination
 					 * the URI!
 					 */
 					
-					$uri = $CI->uri->uri_string();
-					$pos = strpos($uri, $this->pagination_selector);
+					$uri            = $CI->uri->uri_string();
+					$pos            = strpos($uri, $this->pagination_selector);
 					$this->base_url = config_item(\'base_url\') . $this->index_page . substr($uri, 0, $pos + strlen($this->pagination_selector));
 				}
 			
@@ -342,9 +342,9 @@ class MY_Pagination extends CI_Pagination
 			 * Pagination selector was not found in URI string. So offset is 0
 			 */
 			
-			$this->offset = 0;
+			$this->offset      = 0;
 			$this->uri_segment = 0;
-			$this->base_url = config_item(\'base_url\') . $this->index_page . $CI->uri->uri_string() . \'/\' . $this->pagination_selector;		
+			$this->base_url    = config_item(\'base_url\') . $this->index_page . $CI->uri->uri_string() . \'/\' . $this->pagination_selector;		
 		}
 	}
 
@@ -372,20 +372,20 @@ $config[\'per_page\'] = 5;
  * You can also include here your customized CSS designs
  */
 
-// $config[\'full_tag_open\'] = \'<ul class="pagination">\';
-// $config[\'full_tag_close\'] =\'</ul>\';
-// $config[\'num_tag_open\'] = \'<li>\';
-// $config[\'num_tag_close\'] = \'</li>\';
-// $config[\'cur_tag_open\'] = \'<li class="disabled"><li class="active"><a href=#>\';
-// $config[\'cur_tag_close\'] = \'<span class="sr-only"></span></a></li>\';
-// $config[\'next_tag_open\'] = \'<li>\';
-// $config[\'next_tagl_close\'] = \'</li>\';
-// $config[\'prev_tag_open\'] = \'<li>\';
-// $config[\'prev_tagl_close\'] = \'</li>\';
-// $config[\'first_tag_open\'] = \'<li>\';
+// $config[\'full_tag_open\']    = \'<ul class="pagination">\';
+// $config[\'full_tag_close\']   = \'</ul>\';
+// $config[\'num_tag_open\']     = \'<li>\';
+// $config[\'num_tag_close\']    = \'</li>\';
+// $config[\'cur_tag_open\']     = \'<li class="disabled"><li class="active"><a href=#>\';
+// $config[\'cur_tag_close\']    = \'<span class="sr-only"></span></a></li>\';
+// $config[\'next_tag_open\']    = \'<li>\';
+// $config[\'next_tagl_close\']  = \'</li>\';
+// $config[\'prev_tag_open\']    = \'<li>\';
+// $config[\'prev_tagl_close\']  = \'</li>\';
+// $config[\'first_tag_open\']   = \'<li>\';
 // $config[\'first_tagl_close\'] = \'</li>\';
-// $config[\'last_tag_open\'] = \'<li>\';
-// $config[\'last_tagl_close\'] = \'</li>\';';
+// $config[\'last_tag_open\']    = \'<li>\';
+// $config[\'last_tagl_close\']  = \'</li>\';';
 
 /**
  * ---------------------------------------------------------------------------------------------
@@ -495,10 +495,10 @@ chmod('.htaccess', 0777);
 file_put_contents('.htaccess', $htaccess);
 fclose($file);
 
-$file = file_get_contents('application/config/config.php');
-$search = array('$config[\'index_page\'] = \'index.php\';', '$config[\'encryption_key\'] = \'\';');
+$file    = file_get_contents('application/config/config.php');
+$search  = array('$config[\'index_page\'] = \'index.php\';', '$config[\'encryption_key\'] = \'\';');
 $replace = array('$config[\'index_page\'] = \'\';', '$config[\'encryption_key\'] = \'' . md5('rougin') . '\';');
-$file = str_replace($search, $replace, $file);
+$file    = str_replace($search, $replace, $file);
 file_put_contents('application/config/config.php', $file);
 
 /**
@@ -507,7 +507,7 @@ file_put_contents('application/config/config.php', $file);
  * ---------------------------------------------------------------------------------------------
  */
 
-$file = fopen('application/libraries/MY_Pagination.php', 'wb');
+$file              = fopen('application/libraries/MY_Pagination.php', 'wb');
 $pagination_config = fopen('application/config/pagination.php', 'wb');
 
 chmod('application/libraries/MY_Pagination.php', 0777);
@@ -530,7 +530,7 @@ $route[\'(:any)/page\'] = \'$1\';
 $route[\'404_override\'] = \'\';';
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
-	$search .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
+	$search  .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 	$replace .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 }
 
@@ -546,7 +546,7 @@ file_put_contents('application/config/routes.php', $routes);
 
 $index = file_get_contents('index.php');
 
-$search = ' * LOAD THE BOOTSTRAP FILE';
+$search  = ' * LOAD THE BOOTSTRAP FILE';
 $replace =
 ' * LOAD THE COMPOSER AUTOLOAD FILE
  * --------------------------------------------------------------------
@@ -605,11 +605,11 @@ fclose($file);
 $session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE) ? ', \'session\'' : '';
 
 $autoload = file_get_contents('application/config/autoload.php');
-$search = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = array();');
-$replace = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
+$search   = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = array();');
+$replace  = array('$autoload[\'libraries\'] = array(\'doctrine\'' . $session . ');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
 
 if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
-	$search[] = '$autoload[\'drivers\'] = array();';
+	$search[]  = '$autoload[\'drivers\'] = array();';
 	$replace[] = '$autoload[\'drivers\'] = array(\'session\');';
 }
 
