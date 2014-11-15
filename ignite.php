@@ -7,8 +7,8 @@
  * Doctrine (an object-relational mapper for PHP 5.3.3+), and 
  * Combustor (a CRUD generator) for CodeIgniter 3 be ready for writing web applications.
  *
- * @author 	Rougin Gutib <rougin.royce@gmail.com>
- * @link 	http://github.com/rougin/ignite
+ * @author 	Rougin Gutib <rougingutib@gmail.com>
+ * @link 	https://github.com/rougin/ignite.php
  */
 
 /**
