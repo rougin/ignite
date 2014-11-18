@@ -27,7 +27,7 @@ $codeigniter_core = file_get_contents('system/core/CodeIgniter.php');
 
 $composer =
 '{
-	"description" : "EllisLab\'s Open Source PHP Framework http://codeigniter.com/",
+	"description" : "An Open Source PHP Framework",
 	"name" : "ellislab/codeigniter",
 	"require": {
 		"rougin/combustor": "dev-master"
