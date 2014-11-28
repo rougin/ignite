@@ -104,7 +104,8 @@ class MY_Pagination extends CI_Pagination
 	public $offset = 0;
 	public $pagination_selector = \'page\';
 
-	public function MY_Pagination() {
+	public function MY_Pagination()
+	{
 		parent::__construct();
 
 		log_message(\'debug\', "MY_Pagination Class Initialized");
@@ -116,7 +117,8 @@ class MY_Pagination extends CI_Pagination
 	/**
 	 * Set dynamic pagination variables in $CI->data[\'pagvars\']
 	 */
-	public function _set_pagination_offset() {
+	public function _set_pagination_offset()
+	{
 		/**
 		 * Instantiate the CI super object so we have access to the uri class
 		 */
@@ -127,7 +129,8 @@ class MY_Pagination extends CI_Pagination
 		 * Store pagination offset if it is set
 		 */
 
-		if (strstr($CI->uri->uri_string(), $this->pagination_selector)) {
+		if (strstr($CI->uri->uri_string(), $this->pagination_selector))
+		{
 			/**
 			 * Get the segment offset for the pagination selector
 			 */
@@ -138,12 +141,14 @@ class MY_Pagination extends CI_Pagination
 			 * Loop through segments to retrieve pagination offset
 			 */
 
-			foreach ($segments as $key => $value) {
+			foreach ($segments as $key => $value)
+			{
 				/**
 				 * Find the pagination_selector and work from there
 				 */
 				
-				if ($value == $this->pagination_selector) {
+				if ($value == $this->pagination_selector)
+				{
 					
 					/**
 					 * Store pagination offset
@@ -170,7 +175,8 @@ class MY_Pagination extends CI_Pagination
 			
 			}
 		
-		} else {
+		}
+		else {
 			/**
 			 * Pagination selector was not found in URI string. So offset is 0
 			 */
@@ -264,14 +270,19 @@ RewriteRule .* index.php/$0 [PT,L]';
  */
 function remove_directory($dir)
 {
-	if (is_dir($dir)) {
+	if (is_dir($dir))
+	{
 		$objects = scandir($dir);
 		
-		foreach ($objects as $object) {
-			if ($object != "." && $object != "..") {
-				if (filetype($dir."/".$object) == "dir") {
+		foreach ($objects as $object)
+		{
+			if ($object != "." && $object != "..")
+			{
+				if (filetype($dir."/".$object) == "dir")
+				{
 					remove_directory($dir."/".$object);
-				} else {
+				}
+				else {
 					unlink($dir."/".$object);
 				}
 			}
@@ -290,8 +301,10 @@ function remove_directory($dir)
 
 echo 'Deleting unwanted files... ', PHP_EOL;
 
-foreach ($files_to_be_deleted as $file) {
-	if (file_exists($file)) {
+foreach ($files_to_be_deleted as $file)
+{
+	if (file_exists($file))
+	{
 		echo '  Deleting ', $file, '... ', PHP_EOL;
 		
 		unlink($file);
@@ -306,8 +319,10 @@ foreach ($files_to_be_deleted as $file) {
 
 echo 'Deleting unwanted folders... ', PHP_EOL;
 
-foreach ($folders_to_be_deleted as $folder) {
-	if (is_dir($folder)) {
+foreach ($folders_to_be_deleted as $folder)
+{
+	if (is_dir($folder))
+	{
 		echo '  Deleting ', $folder, '... ', PHP_EOL;
 		
 		remove_directory($folder);
@@ -362,7 +377,8 @@ $route[\'(:any)/page/(:any)\'] = \'$1/index/page/$2\';
 $route[\'(:any)/page\'] = \'$1\';
 $route[\'404_override\'] = \'\';';
 
-if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE)
+{
 	$search  .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 	$replace .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 }
@@ -390,7 +406,8 @@ include_once \'vendor/autoload.php\';
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE';
 
-if (strpos($index, 'include_once \'vendor/autoload.php\';') === FALSE) {
+if (strpos($index, 'include_once \'vendor/autoload.php\';') === FALSE)
+{
 	$index = str_replace($search, $replace, $index);
 
 	$file = fopen('index.php', 'wb');
@@ -422,7 +439,8 @@ $autoload = file_get_contents('application/config/autoload.php');
 $search   = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = array();');
 $replace  = array('$autoload[\'libraries\'] = array(' . $session . ');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
 
-if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE) {
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE)
+{
 	$search[]  = '$autoload[\'drivers\'] = array();';
 	$replace[] = '$autoload[\'drivers\'] = array(\'session\');';
 }
