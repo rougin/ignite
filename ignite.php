@@ -393,25 +393,41 @@ file_put_contents('application/config/routes.php', $routes);
  * ---------------------------------------------------------------------------------------------
  */
 
-$index = file_get_contents('index.php');
-
-$search  = ' * LOAD THE BOOTSTRAP FILE';
-$replace =
-' * LOAD THE COMPOSER AUTOLOAD FILE
- * --------------------------------------------------------------------
- */
-include_once \'vendor/autoload.php\';
-
-/*
- * --------------------------------------------------------------------
- * LOAD THE BOOTSTRAP FILE';
-
-if (strpos($index, 'include_once \'vendor/autoload.php\';') === FALSE)
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE)
 {
-	$index = str_replace($search, $replace, $index);
+	$index = file_get_contents('index.php');
+	
+	if (strpos($index, 'include_once \'vendor/autoload.php\';') === FALSE)
+	{
+		$search  = ' * LOAD THE BOOTSTRAP FILE';
+		$replace =
+		' * LOAD THE COMPOSER AUTOLOAD FILE
+		 * --------------------------------------------------------------------
+		 */
+		include_once \'vendor/autoload.php\';
 
-	$file = fopen('index.php', 'wb');
-	file_put_contents('index.php', $index);
+		/*
+		 * --------------------------------------------------------------------
+		 * LOAD THE BOOTSTRAP FILE';
+
+		$index = str_replace($search, $replace, $index);
+
+		$file = fopen('index.php', 'wb');
+		file_put_contents('index.php', $index);
+		fclose($file);
+	}
+}
+else
+{
+	$config = file_get_contents('application/config/config.php');
+
+	$search  = '$config[\'composer_autoload\'] = FALSE;';
+	$replace = '$config[\'composer_autoload\'] = \'vendor/autoload.php\';';
+
+	$config = str_replace($search, $replace, $config);
+
+	$file = fopen('application/config/config.php', 'wb');
+	file_put_contents('application/config/config.php', $config);
 	fclose($file);
 }
 
