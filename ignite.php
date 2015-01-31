@@ -26,10 +26,15 @@ $codeigniter_core = file_get_contents('system/core/CodeIgniter.php');
 
 $composer =
 '{
-	"description" : "An Open Source PHP Framework",
-	"name" : "ellislab/codeigniter",
+	"description" : "The CodeIgniter framework",
+	"name" : "codeigniter/framework",
+	"license": "MIT",
 	"require": {
+		"php": ">=5.2.4",
 		"rougin/combustor": "dev-master"
+	},
+	"require-dev": {
+		"mikey179/vfsStream": "1.1.*"
 	}
 }';
 
@@ -377,7 +382,7 @@ $route[\'(:any)/page/(:any)\'] = \'$1/index/page/$2\';
 $route[\'(:any)/page\'] = \'$1\';
 $route[\'404_override\'] = \'\';';
 
-if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE)
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') !== FALSE)
 {
 	$search  .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
 	$replace .= "\n" . '$route[\'translate_uri_dashes\'] = FALSE;';
@@ -389,11 +394,11 @@ file_put_contents('application/config/routes.php', $routes);
 
 /**
  * ---------------------------------------------------------------------------------------------
- * Adding the composer autoload file in index.php
+ * Adding the Composer either in autoload.php (in 3.0dev) or in the index.php
  * ---------------------------------------------------------------------------------------------
  */
 
-if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE)
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') === FALSE)
 {
 	$index = file_get_contents('index.php');
 	
@@ -449,13 +454,21 @@ system('php vendor/rougin/combustor/bin/pertain');
  * ---------------------------------------------------------------------------------------------
  */
 
-$session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') === FALSE) ? '\'session\'' : '\'\'';
+$session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') === FALSE) ? '\'session\'' : '\'\'';
 
 $autoload = file_get_contents('application/config/autoload.php');
 $search   = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = array();');
-$replace  = array('$autoload[\'libraries\'] = array(' . $session . ');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
+$replace  = array('$autoload[\'libraries\'] = array(' . $session . ', \'doctrine\', \'factory\');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
 
-if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0-dev\')') !== FALSE)
+if (strpos($autoload, '$autoload[\'libraries\'] = array(\'doctrine\', \'factory\');') !== FALSE)
+{
+	$session = ($session == '\'\'') ? NULL : ', \'session\'';
+
+	$search[]  = '$autoload[\'libraries\'] = array(\'doctrine\', \'factory\');';
+	$replace[] = '$autoload[\'libraries\'] = array(\'doctrine\', \'factory\'' . $session . ');';
+}
+
+if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') !== FALSE)
 {
 	$search[]  = '$autoload[\'drivers\'] = array();';
 	$replace[] = '$autoload[\'drivers\'] = array(\'session\');';
