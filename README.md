@@ -8,7 +8,7 @@ Instructions
 
 1. This script requires [Composer](https://getcomposer.org) and [Git](http://git-scm.com) in order to get it work. Download and install the latest version of it first. The instructions for that can be found [here](http://git-scm.com/downloads) and [here](https://getcomposer.org/download/). If you have already installed Composer and Git on your system, then you can skip this step.
 
-2. Clone the latest version of CodeIgniter (in the develop branch) (or you can also download the latest stable release [here](https://ellislab.com/codeigniter/download)) and extract it afterwards.
+2. Clone the latest version of CodeIgniter (in the develop branch) (or you can also download the latest stable release [here](http://www.codeigniter.com/download)) and extract it afterwards.
 	
 	```git clone https://github.com/bcit-ci/CodeIgniter.git```
 
