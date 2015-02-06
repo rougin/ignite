@@ -173,9 +173,12 @@ class MY_Pagination extends CI_Pagination
 					 * the URI!
 					 */
 					
-					$uri            = $CI->uri->uri_string();
-					$pos            = strpos($uri, $this->pagination_selector);
-					$this->base_url = config_item(\'base_url\') . $this->index_page . substr($uri, 0, $pos + strlen($this->pagination_selector));
+					$uri = $CI->uri->uri_string();
+					$pos = strpos($uri, $this->pagination_selector);
+
+					$this->base_url = config_item(\'base_url\') .
+						$this->index_page .
+						substr($uri, 0, $pos + strlen($this->pagination_selector));
 				}
 			
 			}
@@ -188,7 +191,11 @@ class MY_Pagination extends CI_Pagination
 			
 			$this->offset      = 0;
 			$this->uri_segment = 0;
-			$this->base_url    = config_item(\'base_url\') . $this->index_page . $CI->uri->uri_string() . \'/\' . $this->pagination_selector;		
+
+			$this->base_url = config_item(\'base_url\') .
+				$this->index_page .
+				$CI->uri->uri_string() . \'/\' .
+				$this->pagination_selector;		
 		}
 	}
 
@@ -447,34 +454,5 @@ file_put_contents('composer.json', $composer);
 fclose($file);
 system('composer update');
 system('php vendor/rougin/combustor/bin/pertain');
-
-/**
- * ---------------------------------------------------------------------------------------------
- * Autoload the other libraries and helpers
- * ---------------------------------------------------------------------------------------------
- */
-
-$session = (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') === FALSE) ? '\'session\'' : '\'\'';
-
-$autoload = file_get_contents('application/config/autoload.php');
-$search   = array('$autoload[\'libraries\'] = array();', '$autoload[\'helper\'] = array();');
-$replace  = array('$autoload[\'libraries\'] = array(' . $session . ', \'doctrine\', \'factory\');', '$autoload[\'helper\'] = array(\'url\', \'form\');');
-
-if (strpos($autoload, '$autoload[\'libraries\'] = array(\'doctrine\', \'factory\');') !== FALSE)
-{
-	$session = ($session == '\'\'') ? NULL : ', \'session\'';
-
-	$search[]  = '$autoload[\'libraries\'] = array(\'doctrine\', \'factory\');';
-	$replace[] = '$autoload[\'libraries\'] = array(\'doctrine\', \'factory\'' . $session . ');';
-}
-
-if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') !== FALSE)
-{
-	$search[]  = '$autoload[\'drivers\'] = array();';
-	$replace[] = '$autoload[\'drivers\'] = array(\'session\');';
-}
-
-$contents = str_replace($search, $replace, $autoload);
-file_put_contents('application/config/autoload.php', $contents);
 
 echo 'CodeIgniter is now ready for development! Start developing an awesome application today!', PHP_EOL;
