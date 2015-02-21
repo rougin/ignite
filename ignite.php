@@ -31,10 +31,7 @@ $composer =
 	"license": "MIT",
 	"require": {
 		"php": ">=5.2.4",
-		"rougin/combustor": "dev-master"
-	},
-	"require-dev": {
-		"mikey179/vfsStream": "1.1.*"
+		"rougin/combustor": "*"
 	}
 }';
 
