@@ -10,17 +10,17 @@ Instructions
 
 2. Clone the latest version of CodeIgniter (in the develop branch) (or you can also download the latest stable release [here](http://www.codeigniter.com/download)) (it's better to download the 3.0 release candidate) and extract it afterwards.
 
-	```git clone https://github.com/bcit-ci/CodeIgniter.git```
+	```$ git clone https://github.com/bcit-ci/CodeIgniter.git```
 
 3. Clone or download this repository.
 
-	```git clone https://github.com/rougin/ignite.php.git```
+	```$ git clone https://github.com/rougin/ignite.php.git```
 
 4. After cloning, copy the **ignite.php** file from the **ignite.php** folder to the **CodeIgniter** directory.
 
 5. Open the cloned **CodeIgniter** directory then run **ignite.php** from PHP CLI.
 
-	```php ignite.php```
+	```$ php ignite.php```
 
 6. After that, develop now an awesome web application!
 
