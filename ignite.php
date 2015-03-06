@@ -136,16 +136,14 @@ if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') === FALSE)
 	
 	if (strpos($index, 'include_once \'vendor/autoload.php\';') === FALSE)
 	{
-		$search  = ' * LOAD THE BOOTSTRAP FILE';
-		$replace =
-		' * LOAD THE COMPOSER AUTOLOAD FILE
-		 * --------------------------------------------------------------------
-		 */
-		include_once \'vendor/autoload.php\';
-
-		/*
-		 * --------------------------------------------------------------------
-		 * LOAD THE BOOTSTRAP FILE';
+		$search   = ' * LOAD THE BOOTSTRAP FILE';
+		$replace  = ' * LOAD THE COMPOSER AUTOLOAD FILE' . "\n";
+		$replace .= ' * --------------------------------------------------------------------' . "\n";
+		$replace .= ' */' . "\n"
+		$replace .= 'include_once \'vendor/autoload.php\';' . "\n";
+		$replace .= '/*' . "\n";
+		$replace .= ' * --------------------------------------------------------------------' . "\n";
+		$replace .= ' * LOAD THE BOOTSTRAP FILE';
 
 		$index = str_replace($search, $replace, $index);
 
@@ -181,7 +179,6 @@ if ( ! file_exists('composer.json'))
 	fclose($file);
 }
 
-system('composer require rougin/combustor:dev-master');
 system('composer install');
 
 echo 'Combustor is now integrated to CodeIgniter!', PHP_EOL;
