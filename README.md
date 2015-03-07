@@ -3,7 +3,7 @@
 ignite.php
 ==========
 
-A simple PHP script that deletes unwanted files and folders then installs [Combustor](https://github.com/rougin/combustor) (a CRUD generator) for CodeIgniter 3 be ready for writing web applications.
+A simple PHP script that deletes unwanted files and folders then installs [Combustor](https://github.com/rougin/combustor) to prepare [CodeIgniter](http://www.codeigniter.com/) for writing awesome web applications.
 
 Instructions
 ============
@@ -12,15 +12,15 @@ Instructions
 
 2. Clone the latest version of CodeIgniter (in the develop branch) (or you can also download the latest stable release [here](http://www.codeigniter.com/download)) (it's better to download the 3.0 release candidate) and extract it afterwards.
 
-	```$ git clone https://github.com/bcit-ci/CodeIgniter.git```
+	```$ git clone https://github.com/bcit-ci/CodeIgniter.git "codeigniter"```
 
 3. Clone or download this repository.
 
 	```$ git clone https://github.com/rougin/ignite.php.git```
 
-4. After cloning, copy the **ignite.php** file from the **ignite.php** folder to the **CodeIgniter** directory.
+4. After cloning, copy the **ignite.php** file from the **ignite.php** folder to the **codeigniter** directory.
 
-5. Open the cloned **CodeIgniter** directory then run **ignite.php** from PHP CLI.
+5. Open the cloned **codeigniter** directory then run **ignite.php** from PHP CLI.
 
 	```$ php ignite.php```
 

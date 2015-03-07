@@ -139,7 +139,7 @@ if (strpos($codeigniter_core, 'define(\'CI_VERSION\', \'3.0') === FALSE)
 		$search   = ' * LOAD THE BOOTSTRAP FILE';
 		$replace  = ' * LOAD THE COMPOSER AUTOLOAD FILE' . "\n";
 		$replace .= ' * --------------------------------------------------------------------' . "\n";
-		$replace .= ' */' . "\n"
+		$replace .= ' */' . "\n";
 		$replace .= 'include_once \'vendor/autoload.php\';' . "\n";
 		$replace .= '/*' . "\n";
 		$replace .= ' * --------------------------------------------------------------------' . "\n";
