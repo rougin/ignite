@@ -31,7 +31,7 @@ $composer =
 	"license": "MIT",
 	"require": {
 		"php": ">=5.2.4",
-		"rougin/combustor": "*"
+		"rougin/combustor": "dev-master"
 	}
 }';
 
