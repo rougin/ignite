@@ -71,14 +71,14 @@ function remove_directory($dir)
 		
 		foreach ($objects as $object)
 		{
-			if ($object != "." && $object != "..")
+			if ($object != '.' && $object != '..')
 			{
-				if (filetype($dir."/".$object) == "dir")
+				if (filetype($dir . '/' . $object) == 'dir')
 				{
-					remove_directory($dir."/".$object);
+					remove_directory($dir . '/' . $object);
 				}
 				else {
-					unlink($dir."/".$object);
+					unlink($dir . '/' . $object);
 				}
 			}
 		}
