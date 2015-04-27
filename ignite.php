@@ -65,27 +65,32 @@ $folders_to_be_deleted = array(
  */
 function remove_directory($dir)
 {
-	if (is_dir($dir))
+	if ( ! is_dir($dir))
 	{
-		$objects = scandir($dir);
-		
-		foreach ($objects as $object)
+		return 0;
+	}
+
+	$objects = scandir($dir);
+	
+	foreach ($objects as $object)
+	{
+		if ($object == '.' || $object == '..')
 		{
-			if ($object != '.' && $object != '..')
-			{
-				if (filetype($dir . '/' . $object) == 'dir')
-				{
-					remove_directory($dir . '/' . $object);
-				}
-				else {
-					unlink($dir . '/' . $object);
-				}
-			}
+			continue;
 		}
 
-		reset($objects);
-		rmdir($dir);
+		if (filetype($dir . '/' . $object) == 'dir')
+		{
+			remove_directory($dir . '/' . $object);
+		}
+		else
+		{
+			unlink($dir . '/' . $object);
+		}
 	}
+
+	reset($objects);
+	rmdir($dir);
 }
 
 /**
