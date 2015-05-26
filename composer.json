@@ -1,0 +1,15 @@
+{
+	"name": "rougin/ignite",
+	"description": "A Composer-based installer for CodeIgniter",
+	"keywords": ["ignite", "codeigniter"],
+	"require": {
+		"rougin/codeigniter": "*"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Rougin Gutib",
+			"email": "rougingutib@gmail.com"
+		}
+	]
+}
