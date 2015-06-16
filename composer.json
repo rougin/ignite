@@ -3,7 +3,8 @@
 	"description": "A Composer-based installer for CodeIgniter",
 	"keywords": ["ignite", "codeigniter"],
 	"require": {
-		"rougin/codeigniter": "*"
+		"rougin/codeigniter": "*",
+		"kevinlebrun/colors.php": "*"
 	},
 	"license": "MIT",
 	"authors": [
