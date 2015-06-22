@@ -1,16 +1,16 @@
 {
-	"name": "rougin/ignite",
-	"description": "A Composer-based installer for CodeIgniter",
-	"keywords": ["ignite", "codeigniter"],
-	"require": {
-		"rougin/codeigniter": "*",
-		"kevinlebrun/colors.php": "*"
-	},
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Rougin Gutib",
-			"email": "rougingutib@gmail.com"
-		}
-	]
+  "name": "rougin/ignite",
+  "description": "A Composer-based installer for CodeIgniter",
+  "keywords": ["ignite", "codeigniter"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rougin Gutib",
+      "email": "rougingutib@gmail.com"
+    }
+  ],
+  "require": {
+    "rougin/codeigniter": "*",
+    "kevinlebrun/colors.php": "*"
+  }
 }
