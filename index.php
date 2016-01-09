@@ -98,7 +98,7 @@ switch (ENVIRONMENT)
  * Include the path if the folder is not in the same directory
  * as this file.
  */
-	$system_path = 'vendor/rougin/codeigniter';
+	$system_path = 'vendor/rougin/codeigniter/src';
 
 /*
  *---------------------------------------------------------------
