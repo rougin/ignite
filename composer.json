@@ -1,24 +1,20 @@
 {
     "name": "rougin/ignite",
-    "description": "A Composer-based installer for CodeIgniter",
-    "keywords": [
-        "codeigniter",
-        "composer",
-        "ignite",
-        "installer"
-    ],
+    "description": "Yet another Codeigniter application with a twist.",
+    "keywords": ["codeigniter", "composer", "ignite", "installer"],
     "homepage": "https://github.com/rougin/ignite",
     "license": "MIT",
     "authors": [
         {
             "name": "Rougin Royce Gutib",
             "email": "rougingutib@gmail.com",
-            "homepage": "http://rougin.github.io",
+            "homepage": "https://rougin.github.io",
             "role": "Developer"
         }
     ],
     "require": {
         "php" : ">=5.4.0",
-        "rougin/codeigniter": "^3.0.0"
+        "rougin/codeigniter": "~3.0",
+        "rougin/spark-plug": "~0.5"
     }
 }
