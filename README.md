@@ -7,7 +7,7 @@
 Ignite is yet another [Codeigniter](https://codeigniter.com) application with a different approach on folder structure:
 
 * Instead of the default `application` directory, it is now the root directory
-* Removed `defined('BASEPATH') OR exit('No direct script access allowed');` line of code
+* Removed the `defined('BASEPATH') OR exit('No direct script access allowed');` line of code
 * The `index.php` in the root directory is moved in the `web` directory for security purposes
 * The `user_guide` directory is also moved to the `web` directory
 
@@ -45,6 +45,12 @@ acme/
 
 ``` bash
 php -S localhost:8000 -t web/
+```
+
+## Testing
+
+``` bash
+$ composer test
 ```
 
 ## Credits
