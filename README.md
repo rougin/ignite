@@ -1,7 +1,7 @@
 # Ignite
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]][link-license]
 [![Total Downloads][ico-downloads]][link-downloads]
 
 Ignite is yet another [Codeigniter](https://codeigniter.com) application with a different approach on folder structure:
@@ -11,7 +11,9 @@ Ignite is yet another [Codeigniter](https://codeigniter.com) application with a 
 * The `index.php` in the root directory is moved in the `web` directory for security purposes
 * The `user_guide` directory is also moved to the `web` directory
 
-## Install
+## Installation
+
+Install `Ignite` via [Composer](https://getcomposer.org/):
 
 ``` bash
 $ composer create-project rougin/ignite "acme"
@@ -47,6 +49,10 @@ acme/
 php -S localhost:8000 -t web/
 ```
 
+## Changelog
+
+Please see [CHANGELOG][link-changelog] for more information what has changed recently.
+
 ## Testing
 
 ``` bash
@@ -55,18 +61,18 @@ $ composer test
 
 ## Credits
 
-- [Rougin Royce Gutib][link-author]
-- [All Contributors][link-contributors]
+- [All contributors][link-contributors]
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [LICENSE][link-license] for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/rougin/ignite.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/rougin/ignite.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/rougin/ignite
+[link-changelog]: https://github.com/rougin/ignite/blob/master/CHANGELOG.md
+[link-contributors]: https://github.com/rougin/ignite/contributors
 [link-downloads]: https://packagist.org/packages/rougin/ignite
-[link-author]: https://github.com/rougin
-[link-contributors]: ../../contributors
+[link-license]: https://github.com/rougin/ignite/blob/master/LICENSE.md
+[link-packagist]: https://packagist.org/packages/rougin/ignite
