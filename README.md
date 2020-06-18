@@ -21,7 +21,7 @@ $ composer create-project rougin/ignite "acme"
 
 ## Folder Structure
 
-```
+``` bash
 acme/
 ├── cache/
 ├── config/
