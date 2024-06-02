@@ -4,12 +4,10 @@
 [![Software License][ico-license]][link-license]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Ignite is yet another [Codeigniter](https://codeigniter.com) application with a different approach on folder structure:
+Ignite is yet another [Codeigniter](https://codeigniter.com) application with an alternative folder structure:
 
-* Instead of the default `application` directory, it is now the root directory
-* Removed the `defined('BASEPATH') OR exit('No direct script access allowed');` line of code
-* The `index.php` in the root directory is moved in the `web` directory for security purposes
-* The `user_guide` directory is also moved to the `web` directory
+* Moved the `application` directory as the root directory; and
+* Created a `web` directory to store the main `index.php` file.
 
 ## Installation
 
@@ -37,11 +35,12 @@ acme/
 ├── vendor/
 ├── views/
 ├── web/
-│   ├── user_guide
 │   ├── .htaccess
 │   └── index.php
 └── composer.json
 ```
+
+**NOTE**: Codeigniter's documentation can be found in this [link](https://codeigniter.com/userguide3/).
 
 ## Run PHP built-in server (PHP 5.4 or later)
 

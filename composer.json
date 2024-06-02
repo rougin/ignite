@@ -1,33 +1,33 @@
 {
-    "name": "rougin/ignite",
-    "description": "Composer-based project for the Codeigniter framework.",
-    "keywords": ["codeigniter", "ignite", "installer", "project-skeleton"],
-    "homepage": "https://roug.in/codeigniter/",
-    "license": "MIT",
-    "authors":
-    [
-        {
-            "email": "rougingutib@gmail.com",
-            "homepage": "https://roug.in/",
-            "name": "Rougin Gutib",
-            "role": "Software Engineer"
-        }
-    ],
-    "require":
+  "name": "rougin/ignite",
+  "description": "Composer-based project skeleton for the Codeigniter framework.",
+  "keywords": [ "codeigniter", "ignite", "installer", "project-skeleton" ],
+  "homepage": "https://roug.in/ignite/",
+  "license": "MIT",
+  "authors":
+  [
     {
-        "php": ">=5.4.0",
-        "rougin/codeigniter": "~3.0",
-        "rougin/spark-plug": "~0.5"
-    },
-    "scripts":
-    {
-        "test": "phpunit"
-    },
-    "suggest":
-    {
-        "rougin/combustor": "CRUD generator for the Codeigniter framework.",
-        "rougin/credo": "Doctrine ORM integration for the Codeigniter framework.",
-        "rougin/refinery": "\"Ready-to-eat\" migrations for Codeigniter framework",
-        "rougin/wildfire": "Query Builder wrapper for the Codeigniter framework."
+      "email": "rougingutib@gmail.com",
+      "homepage": "https://roug.in/",
+      "name": "Rougin Gutib",
+      "role": "Software Engineer"
     }
+  ],
+  "require":
+  {
+    "php": ">=5.4.0",
+    "rougin/codeigniter": "~3.0",
+    "rougin/spark-plug": "~0.5"
+  },
+  "scripts":
+  {
+    "test": "phpunit"
+  },
+  "suggest":
+  {
+    "rougin/combustor": "CRUD generator for the Codeigniter framework.",
+    "rougin/credo": "Doctrine ORM integration for the Codeigniter framework.",
+    "rougin/refinery": "\"Ready-to-eat\" migrations for Codeigniter framework",
+    "rougin/wildfire": "Query Builder wrapper for the Codeigniter framework."
+  }
 }
