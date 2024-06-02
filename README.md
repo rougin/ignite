@@ -6,9 +6,8 @@
 
 Ignite is yet another [Codeigniter](https://codeigniter.com) application with a different approach on folder structure:
 
-* Instead of the default `application` directory, it is now the root directory
-* The `index.php` in the root directory is moved in the `web` directory for security purposes
-* The `user_guide` directory is also moved to the `web` directory
+* Moved the `application` directory as the root directory; and
+* Created a `web` directory to store the main `index.php` file.
 
 ## Installation
 
