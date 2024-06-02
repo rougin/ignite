@@ -4,7 +4,7 @@
 [![Software License][ico-license]][link-license]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-Ignite is yet another [Codeigniter](https://codeigniter.com) application with a different approach on folder structure:
+Ignite is yet another [Codeigniter](https://codeigniter.com) application with an alternative folder structure:
 
 * Moved the `application` directory as the root directory; and
 * Created a `web` directory to store the main `index.php` file.
