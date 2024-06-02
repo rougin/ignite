@@ -60,7 +60,7 @@ $platforms = array(
 $browsers = array(
 	'OPR'			=> 'Opera',
 	'Flock'			=> 'Flock',
-	'Edge'			=> 'Spartan',
+	'Edge'			=> 'Edge',
 	'Chrome'		=> 'Chrome',
 	// Opera 10+ always reports Opera/9.80 and appends Version/<real version> to the user agent string
 	'Opera.*?Version'	=> 'Opera',
@@ -109,6 +109,7 @@ $mobiles = array(
 	// Phones and Manufacturers
 	'motorola'		=> 'Motorola',
 	'nokia'			=> 'Nokia',
+	'nexus'			=> 'Nexus',
 	'palm'			=> 'Palm',
 	'iphone'		=> 'Apple iPhone',
 	'ipad'			=> 'iPad',
@@ -149,6 +150,12 @@ $mobiles = array(
 	'wii'			=> 'Nintendo Wii',
 	'open web'		=> 'Open Web',
 	'openweb'		=> 'OpenWeb',
+	'meizu'                 => 'Meizu',
+	'huawei'                => 'Huawei',
+	'xiaomi'                => 'Xiaomi',
+	'oppo'                  => 'Oppo',
+	'vivo'                  => 'Vivo',
+	'infinix'               => 'Infinix',
 
 	// Operating Systems
 	'android'		=> 'Android',
@@ -209,5 +216,6 @@ $robots = array(
 	'curious george'	=> 'Curious George',
 	'ia_archiver'		=> 'Alexa Crawler',
 	'MJ12bot'		=> 'Majestic-12',
-	'Uptimebot'		=> 'Uptimebot'
+	'Uptimebot'		=> 'Uptimebot',
+	'UptimeRobot'		=> 'UptimeRobot'
 );
