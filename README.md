@@ -36,11 +36,12 @@ acme/
 ├── vendor/
 ├── views/
 ├── web/
-│   ├── user_guide
 │   ├── .htaccess
 │   └── index.php
 └── composer.json
 ```
+
+**NOTE**: Codeigniter's documentation can be found in this [link](https://codeigniter.com/userguide3/).
 
 ## Run PHP built-in server (PHP 5.4 or later)
 
