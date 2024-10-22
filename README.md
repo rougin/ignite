@@ -9,28 +9,6 @@ Ignite is yet another [Codeigniter 3](https://codeigniter.com/userguide3) projec
 * Moved the `application` directory as the root directory; and
 * Created a `public` directory to store the main `index.php` file.
 
-## Installation
-
-Creating a new `Codeigniter 3` project based on `Ignite` is possible through [Composer](https://getcomposer.org/):
-
-``` bash
-$ composer create-project rougin/ignite "ciacme"
-```
-
-## Running in local
-
-To run the application for development, the [built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) of PHP can be used:
-
-``` bash
-$ cd ciacme
-$ php -S localhost:4464 -t public/
-```
-
-> [!NOTE]
-> The built-in web server is only available for PHP versions `v5.4` and higher.
-
-## Folder structure
-
 ``` bash
 ciacme/
 ├── cache/
@@ -52,8 +30,25 @@ ciacme/
 └── composer.json
 ```
 
+## Installation
+
+Creating a new `Codeigniter 3` project based on `Ignite` is possible through [Composer](https://getcomposer.org/):
+
+``` bash
+$ composer create-project rougin/ignite "ciacme"
+```
+
+## Running in local
+
+To run the application for development, the [built-in web server](https://www.php.net/manual/en/features.commandline.webserver.php) of PHP can be used:
+
+``` bash
+$ cd ciacme
+$ php -S localhost:4464 -t public/
+```
+
 > [!NOTE]
-> For more information on the specified directories, kindly check its [documentation](https://codeigniter.com/userguide3/) for `Codeigniter 3`.
+> The built-in web server is only available for PHP versions `v5.4` and higher.
 
 ## Changelog
 
