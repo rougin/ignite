@@ -1,7 +1,7 @@
 {
   "name": "rougin/ignite",
-  "description": "Composer-based project skeleton for the Codeigniter framework.",
-  "keywords": [ "codeigniter", "ignite", "installer", "project-skeleton" ],
+  "description": "Yet another Codeigniter 3 project template.",
+  "keywords": [ "php-project", "php-app", "project-skeleton" ],
   "homepage": "https://roug.in/ignite/",
   "license": "MIT",
   "authors":
@@ -16,18 +16,15 @@
   "require":
   {
     "php": ">=5.4.0",
-    "rougin/codeigniter": "~3.0",
-    "rougin/spark-plug": "~0.5"
-  },
-  "scripts":
-  {
-    "test": "phpunit"
+    "rougin/codeigniter": "~3.0"
   },
   "suggest":
   {
-    "rougin/combustor": "CRUD generator for the Codeigniter framework.",
-    "rougin/credo": "Doctrine ORM integration for the Codeigniter framework.",
-    "rougin/refinery": "\"Ready-to-eat\" migrations for Codeigniter framework",
-    "rougin/wildfire": "Query Builder wrapper for the Codeigniter framework."
+    "rougin/codeigniter": "Packaged \"system\" of Codeigniter 3.",
+    "rougin/combustor": "MVC code generator for Codeigniter 3.",
+    "rougin/credo": "Doctrine ORM wrapper for Codeigniter 3.",
+    "rougin/refinery": "\"Ready-to-eat\" Codeigniter 3 migrations.",
+    "rougin/spark-plug": "Codeigniter 3 projects as variables.",
+    "rougin/wildfire": "Query Builder wrapper for Codeigniter 3."
   }
 }
