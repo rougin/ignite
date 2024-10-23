@@ -32,7 +32,7 @@ ciacme/
 
 ## Installation
 
-Creating a new `Codeigniter 3` project based on `Ignite` is possible through [Composer](https://getcomposer.org/):
+Use [Composer](https://getcomposer.org/) to create a new `Ignite`-based `Codeigniter 3` project:
 
 ``` bash
 $ composer create-project rougin/ignite "ciacme"
