@@ -50,6 +50,20 @@ $ php -S localhost:4464 -t public/
 > [!NOTE]
 > The built-in web server is only available for PHP versions `v5.4` and higher.
 
+Then access `http://localhost:4464` in a web browser.
+
+## Featured packages
+
+`Ignite` also provides default configuration for the following third-party packages below. These packages improve quality of development when writing code under `Codeigniter 3`:
+
+* [Combustor](https://roug.in/combustor/)
+
+Combustor is a utility package for [Codeigniter 3](https://codeigniter.com/userguide3/) that generates controllers, models, and views based on the provided database tables. It uses the [Describe](https://roug.in/describe/) package for getting columns from a database table and as the basis for code generation.
+
+* [Refinery](https://roug.in/refinery/)
+
+Refinery is a console-based package of [Migrations Class](https://www.codeigniter.com/userguide3/libraries/migration.html) for the [Codeigniter 3](https://codeigniter.com/userguide3). It also uses the [Describe](https://roug.in/describe/) package for retrieving the database tables for creating database migrations.
+
 ## Changelog
 
 Please see [CHANGELOG][link-changelog] for more information what has changed recently.
